@@ -20,6 +20,9 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Vercel (Build Output API gerada pelo Nitro no build com VERCEL=1)
+.vercel
+
 # Segredos e config local (docs/AGENTS.md regra dura #2)
 .env
 .env.*

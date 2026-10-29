@@ -5,6 +5,10 @@ e pelo Claude ao revisar. Formato: `AAAA-MM-DD HH:MM | task | quem | resumo`.
 
 <!-- Adicionar novas linhas no topo -->
 
+2026-10-28 22:20 | 014 | opencode | Erro "Não foi possível carregar" depois do pagamento corrigido: `TrackMap` importava `leaflet` no topo do módulo e o Leaflet lê `window` na avaliação do módulo, quebrando o SSR do `/rastreio` (`ReferenceError: window is not defined`). Import virou dinâmico dentro do `useEffect` (chunk só do cliente) + fallback textual quando o mapa falha. SSR agora 200 com conteúdo; mapa continua montando no browser.
+
+2026-10-28 22:10 | 013 | opencode | Deploy do Vercel destravado: `@tanstack/react-start` 1.168.26 → 1.169.4 (CVE-2026-102989, mínimo 1.168.60), `react-router` → 1.170.46 e `router-plugin` → 1.168.48 (família alinhada, sem duplicata no lock). `ErrorComponent` migrado para `ErrorComponentProps` (`error: unknown`). Saíram `zod`, `@hookform/resolvers`, `three` e `@types/three` (0 imports; audit 33 → 32). `.vercel` no `.gitignore`.
+
 2026-10-28 21:30 | 012 | opencode | Lovable removido: `vite.config.ts` próprio (TanStack Start + Nitro + Tailwind), `@lovable.dev/*` fora do `package.json` e do lock (13 URLs do mirror privado → `registry.npmjs.org`, zero bump de versão), favicon/apple-touch/og:image próprios, `lovable-error-reporting.ts` apagado.
 
 2026-10-28 21:05 | 011 | opencode | `agua-sem-gas.jpg` trocada pelo packshot Crystal sem gás 500ml (Mambo/VTEX), recorte Vision + cream, 900×1125, 99 KB. Seed do back rodado; `test_shared_svg_photo` virou `test_each_beverage_has_own_photo` e a suíte do back passou.
