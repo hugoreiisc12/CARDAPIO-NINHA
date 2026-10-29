@@ -294,7 +294,7 @@ export function CartSheet({ open, onOpenChange }: Props) {
       )}
       {view === "entrega" && <DeliveryStep {...stepProps} />}
       {view === "dados" && <CustomerStep {...stepProps} />}
-      {view === "pagamento" && <PaymentStep {...stepProps} />}
+      {view === "pagamento" && <PaymentStep {...stepProps} total={subtotal} />}
       {view === "revisao" && <ReviewStep draft={draft} lines={lines} subtotal={subtotal} />}
       {view === "pay" && payInfo && (
         <StripePayment

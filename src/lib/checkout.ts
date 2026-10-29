@@ -22,7 +22,7 @@ export const PAYMENT_METHODS: {
     hint: "Crédito ou débito na maquininha",
     available: true,
   },
-  { id: "dinheiro", label: "Dinheiro", hint: "Informe se precisa de troco", available: true },
+  { id: "dinheiro", label: "Dinheiro", hint: "Informe o valor para o troco", available: true },
   {
     id: "pix",
     label: "Pix",
@@ -97,6 +97,13 @@ export function parseMoney(s: string): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
+/** Troco a devolver: valor entregue − total, nunca negativo. null se o campo está vazio/inválido. */
+export function changeDue(changeFor: string, total: number): number | null {
+  const paid = parseMoney(changeFor);
+  if (paid === null) return null;
+  return Math.max(paid - total, 0);
+}
+
 export function validateStep(step: CheckoutStep, d: CheckoutDraft, total: number): FieldErrors {
   const e: FieldErrors = {};
   if (step === "entrega" && d.fulfillment === "entrega") {
@@ -110,10 +117,13 @@ export function validateStep(step: CheckoutStep, d: CheckoutDraft, total: number
   if (step === "pagamento") {
     const method = PAYMENT_METHODS.find((m) => m.id === d.payment);
     if (!method || !method.available) e.payment = "Escolha uma forma de pagamento";
-    if (d.payment === "dinheiro" && d.changeFor.trim()) {
+    // Dinheiro exige o valor do troco. Não comparamos com o total: quem paga em
+    // dinheiro pode entregar menos e acertar o resto na hora, e o troco é
+    // calculado sobre o que foi digitado (nunca negativo).
+    if (d.payment === "dinheiro") {
       const n = parseMoney(d.changeFor);
-      if (n === null || n < total)
-        e.changeFor = `O troco precisa ser para ${formatPrice(total)} ou mais`;
+      if (!d.changeFor.trim()) e.changeFor = "Informe o valor para o troco";
+      else if (n === null || n <= 0) e.changeFor = "Informe um valor válido, ex.: 50,00";
     }
   }
   return e;
@@ -126,7 +136,16 @@ export function buildOrderMessage(lines: CartLineForMessage[], d: CheckoutDraft)
     return `• ${l.quantity}x ${l.name}${variation ? ` (${variation})` : ""} — ${formatPrice(l.unitPrice * l.quantity)}`;
   });
   const method = PAYMENT_METHODS.find((m) => m.id === d.payment);
-  const change = d.payment === "dinheiro" ? parseMoney(d.changeFor) : null;
+  const paid = d.payment === "dinheiro" ? parseMoney(d.changeFor) : null;
+  const due = paid === null ? 0 : Math.max(paid - total, 0);
+  // O valor que o cliente entrega e o troco que a Ninha separa; sem "troco de"
+  // quando o valor é exato (ou menor que o total — a diferença é acertada na hora).
+  const changeText =
+    paid === null
+      ? ""
+      : due > 0
+        ? ` (troco para ${formatPrice(paid)} · troco de ${formatPrice(due)})`
+        : ` (troco para ${formatPrice(paid)})`;
   const fulfillment =
     d.fulfillment === "entrega"
       ? [
@@ -146,7 +165,7 @@ export function buildOrderMessage(lines: CartLineForMessage[], d: CheckoutDraft)
     "",
     ...fulfillment,
     "",
-    `*Pagamento:* ${method?.label ?? "—"}${change ? ` (troco para ${formatPrice(change)})` : ""}`,
+    `*Pagamento:* ${method?.label ?? "—"}${changeText}`,
     "",
     `*Cliente:* ${d.name.trim()} · ${d.phone.trim()}`,
     d.notes.trim() ? `*Observações:* ${d.notes.trim()}` : null,

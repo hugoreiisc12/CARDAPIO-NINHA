@@ -233,7 +233,9 @@ const PAYMENT_ICONS: Record<PaymentMethod, ReactNode> = {
   dinheiro: <Banknote className="h-5 w-5" />,
 };
 
-export function PaymentStep({ draft, errors, set }: StepProps) {
+export function PaymentStep({ draft, errors, set, total }: StepProps & { total: number }) {
+  const paid = draft.payment === "dinheiro" ? parseMoney(draft.changeFor) : null;
+  const due = paid === null ? null : Math.max(paid - total, 0);
   return (
     <div className="px-5 pt-6 pb-6">
       <StepTitle title="Forma de pagamento" hint="Você paga na confirmação ou na entrega." />
@@ -255,13 +257,24 @@ export function PaymentStep({ draft, errors, set }: StepProps) {
       {draft.payment === "dinheiro" && (
         <div className="mt-5">
           <FormField
-            label="Troco para (opcional)"
+            label="Troco para"
             inputMode="decimal"
             value={draft.changeFor}
             onChange={(v) => set("changeFor", v)}
             error={errors.changeFor}
-            placeholder="R$ 100,00"
+            placeholder="Ex.: 50,00"
           />
+          {due !== null && paid !== null && paid >= total && (
+            <p className="mt-2 text-[13px] text-ink-soft">
+              {due > 0 ? (
+                <>
+                  Troco: <strong className="text-ink">{formatPrice(due)}</strong>
+                </>
+              ) : (
+                "Valor exato — sem troco."
+              )}
+            </p>
+          )}
         </div>
       )}
     </div>
@@ -287,7 +300,8 @@ export function ReviewStep({
   subtotal: number;
 }) {
   const method = PAYMENT_METHODS.find((m) => m.id === draft.payment);
-  const change = draft.payment === "dinheiro" ? parseMoney(draft.changeFor) : null;
+  const paid = draft.payment === "dinheiro" ? parseMoney(draft.changeFor) : null;
+  const due = paid === null ? 0 : Math.max(paid - subtotal, 0);
   return (
     <div className="px-5 pt-6 pb-6">
       <StepTitle title="Revise seu pedido" hint="Confira tudo antes de confirmar." />
@@ -325,7 +339,10 @@ export function ReviewStep({
         </ReviewBlock>
         <ReviewBlock title="Pagamento">
           {method?.label}
-          {change !== null && ` · troco para ${formatPrice(change)}`}
+          {paid !== null && ` · troco para ${formatPrice(paid)}`}
+          {due > 0 && (
+            <span className="block text-[13px] text-ink-soft">Troco: {formatPrice(due)}</span>
+          )}
         </ReviewBlock>
         <ReviewBlock title="Contato">
           {draft.name} · {draft.phone}

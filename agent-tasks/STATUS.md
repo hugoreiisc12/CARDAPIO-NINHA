@@ -5,6 +5,8 @@ e pelo Claude ao revisar. Formato: `AAAA-MM-DD HH:MM | task | quem | resumo`.
 
 <!-- Adicionar novas linhas no topo -->
 
+2026-10-28 22:58 | 016 | opencode | Troco em dinheiro: campo virou obrigatório e validado (`> 0`), a regra "< total" saiu do front **e** do servidor, e o troco passou a ser calculado (`valor − total`) na etapa de pagamento, na revisão, na mensagem do WhatsApp e no ticket. O "R$ 49,90" da mensagem antiga era o subtotal do carrinho, não um mínimo fixo.
+
 2026-10-28 22:37 | 015 | opencode | Reajuste de preços da tabela da loja aplicado em `src/lib/catalog.ts`: 35 dos 38 produtos mudaram (conferência linha a linha: 57 linhas da tabela, 36 com produto, **0 divergências**). 21 itens da tabela não existem no catálogo e não foram inventados — dependem de foto em `src/assets/products/`. Morango Cravejado e Coca-Cola Original 350ml ficaram com o preço antigo por não virem na tabela (confirmar com a loja).
 
 2026-10-28 22:20 | 014 | opencode | Erro "Não foi possível carregar" depois do pagamento corrigido: `TrackMap` importava `leaflet` no topo do módulo e o Leaflet lê `window` na avaliação do módulo, quebrando o SSR do `/rastreio` (`ReferenceError: window is not defined`). Import virou dinâmico dentro do `useEffect` (chunk só do cliente) + fallback textual quando o mapa falha. SSR agora 200 com conteúdo; mapa continua montando no browser.

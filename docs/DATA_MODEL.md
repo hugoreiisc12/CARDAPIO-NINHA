@@ -157,7 +157,7 @@ CREATE TABLE orders (
   notes             TEXT NULL,
   subtotal_cents    INT NOT NULL,
   delivery_fee_cents INT NOT NULL DEFAULT 0,
-  change_for_cents  INT NULL,
+  change_for_cents  INT NULL,              -- valor entregue em dinheiro; NULL fora de `dinheiro`
   status            order_status NOT NULL DEFAULT 'draft',
   tracking_code     VARCHAR UNIQUE NULL,   -- "NINHA-7X4K2Q"
   tracking_token    UUID UNIQUE NULL,      -- consulta pública sem login
@@ -262,7 +262,7 @@ CREATE TABLE ifood_sync_runs (
 | `pix` | Pix | A Ninha envia a chave na confirmação | ✅ | ✅ |
 | `cartao-online` | Cartão online | Pagamento seguro no cardápio | ✅ | ✅ |
 | `cartao-entrega` | Cartão na entrega | Crédito ou débito na maquininha | ✅ | ❌ |
-| `dinheiro` | Dinheiro | Informe se precisa de troco | ✅ | ❌ |
+| `dinheiro` | Dinheiro | Informe o valor para o troco | ✅ | ❌ |
 
 **`store_settings`** — `whatsapp_number: '5521988073217'`, `address: 'Rua Tenente Luiz Meireles, 1100 — Bom Retiro, Teresópolis/RJ'`, `instagram: '@ninha__cakes'`. **`business_hours` depende da confirmação da loja** (ver risco 2 no `BACKEND_PLAN.md`).
 
@@ -277,6 +277,7 @@ CREATE TABLE ifood_sync_runs (
 * `store_settings` só tem a linha `id = 1` (CHECK + `force_insert=False` no `save()`).
 * `delivery_zones.neighborhoods` sempre normalizado (minúsculo, sem acento) — a normalização acontece na escrita, nunca na consulta.
 * `status` só muda por transição gravada em `order_events`; o admin não edita o campo direto.
+* `change_for_cents` é obrigatório quando `payment = 'dinheiro'` (o checkout não deixa avançar sem ele) e o troco a devolver é `max(change_for_cents - total_cents, 0)`. Valor abaixo do total **não** é erro desde 2026-10-28 — a diferença se acerta na entrega.
 * `categories` não pode ser apagada com produtos ligados (`ON DELETE PROTECT`).
 
 **Pendência para o B8:** nada impede que o mesmo bairro apareça em duas zonas
