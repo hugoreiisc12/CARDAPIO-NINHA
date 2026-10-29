@@ -5,6 +5,8 @@ e pelo Claude ao revisar. Formato: `AAAA-MM-DD HH:MM | task | quem | resumo`.
 
 <!-- Adicionar novas linhas no topo -->
 
+2026-10-28 22:37 | 015 | opencode | Reajuste de preços da tabela da loja aplicado em `src/lib/catalog.ts`: 35 dos 38 produtos mudaram (conferência linha a linha: 57 linhas da tabela, 36 com produto, **0 divergências**). 21 itens da tabela não existem no catálogo e não foram inventados — dependem de foto em `src/assets/products/`. Morango Cravejado e Coca-Cola Original 350ml ficaram com o preço antigo por não virem na tabela (confirmar com a loja).
+
 2026-10-28 22:20 | 014 | opencode | Erro "Não foi possível carregar" depois do pagamento corrigido: `TrackMap` importava `leaflet` no topo do módulo e o Leaflet lê `window` na avaliação do módulo, quebrando o SSR do `/rastreio` (`ReferenceError: window is not defined`). Import virou dinâmico dentro do `useEffect` (chunk só do cliente) + fallback textual quando o mapa falha. SSR agora 200 com conteúdo; mapa continua montando no browser.
 
 2026-10-28 22:10 | 013 | opencode | Deploy do Vercel destravado: `@tanstack/react-start` 1.168.26 → 1.169.4 (CVE-2026-102989, mínimo 1.168.60), `react-router` → 1.170.46 e `router-plugin` → 1.168.48 (família alinhada, sem duplicata no lock). `ErrorComponent` migrado para `ErrorComponentProps` (`error: unknown`). Saíram `zod`, `@hookform/resolvers`, `three` e `@types/three` (0 imports; audit 33 → 32). `.vercel` no `.gitignore`.

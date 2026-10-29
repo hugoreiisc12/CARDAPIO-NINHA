@@ -20,7 +20,7 @@
   (`deterministic=false`) criada em `catalog/migrations/0000_ninha_ci_collation.py`.
 * Nomes de tabela: casam **exatamente** com o DDL abaixo via `Meta.db_table`
   (`products`, não `catalog_product`). O ETL do B10 usa SQL cru e depende disso.
-* Dinheiro: **`_cents INT`**, nunca float. Motivo: `catalog.ts` usa `21.99` / `23.9`; subtotal e troco somam float e erram centavo. Os únicos `double precision` do schema são coordenadas (`map_origin_lat/lng`, `tracking_checkpoints.lat/lng`).
+* Dinheiro: **`_cents INT`**, nunca float. Motivo: `catalog.ts` usa `21.99` / `19.9`; subtotal e troco somam float e erram centavo. Os únicos `double precision` do schema são coordenadas (`map_origin_lat/lng`, `tracking_checkpoints.lat/lng`).
 * `order_status`: **não** é `CREATE TYPE ... AS ENUM` nativo. É `TextChoices`
   (varchar + check). Enum nativo no Postgres exige `ALTER TYPE` para crescer e
   quebra o rollback de migração; a proteção contra valor errado é a mesma.

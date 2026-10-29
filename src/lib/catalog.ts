@@ -33,7 +33,7 @@ export const categories: Category[] = [
         name: "Capitão Jack",
         description:
           "Nossa releitura da famosa torta americana gelada: camadas de calda de caramelo, creme de baunilha, caramelo salgado, castanhas crocantes, ganache de chocolate meio amargo e Ovomaltine!",
-        price: 23,
+        price: 21,
         image: photo("capitao-jack"),
         featured: true,
         tags: ["Queridinho"],
@@ -43,7 +43,7 @@ export const categories: Category[] = [
         name: "Crunchy Cake",
         description:
           "Massa de chocolate fofinha e molhadinha, cobertura de brigadeiro gourmet e uma generosa camada do chocolate crocante Pailleté Feuilletine. Explosão de crocância e cremosidade!",
-        price: 24.99,
+        price: 23,
         image: photo("crunchy-cake"),
         featured: true,
         tags: ["Queridinho"],
@@ -53,7 +53,7 @@ export const categories: Category[] = [
         name: "Slice Palha Italiana Supreme",
         description:
           "Massa de chocolate molhadinha recheada com brigadeiro gourmet e Palha Italiana de Ninho com Nutella, finalizada com um brigadeiro de palha por cima. Bem chocolatudo e cremoso!",
-        price: 26.99,
+        price: 24,
         image: photo("slice-palha-italiana-supreme"),
       },
       {
@@ -61,7 +61,7 @@ export const categories: Category[] = [
         name: "Slice Cake Dupla Tentação Crocante",
         description:
           "Massa de chocolate super fofinha com brigadeiro meio amargo e brigadeiro de maracujá, finalizada com a cobertura crocante do Crunchy Cake. O equilíbrio perfeito entre o doce e o azedinho.",
-        price: 24.99,
+        price: 23,
         image: photo("slice-dupla-tentacao-crocante"),
       },
       {
@@ -69,14 +69,14 @@ export const categories: Category[] = [
         name: "Slice Kinder Bueno",
         description:
           "Massa de cacau black intensa, recheio de brigadeiro branco com chocolate e avelãs crocantes, e um segundo recheio de brigadeiro com Nutella e mais avelãs.",
-        price: 26.99,
+        price: 25,
         image: photo("slice-kinder-bueno"),
       },
       {
         id: "pave-abacaxi-coco",
         name: "Pavê de Abacaxi com Côco",
         description: "Camadas de creme com côco, creme de Ninho com abacaxi e biscoitos.",
-        price: 21.99,
+        price: 19.9,
         image: photo("pave-abacaxi-coco"),
       },
       {
@@ -84,7 +84,7 @@ export const categories: Category[] = [
         name: "Pavê Ninho com Nutella",
         description:
           "Camadas cremosas de brigadeiro de Ninho com chocolate branco e brigadeiro de chocolate com Nutella, cobertas com raspas de chocolate nobre.",
-        price: 23.9,
+        price: 21.5,
         image: photo("pave-ninho-nutella"),
       },
       {
@@ -92,7 +92,7 @@ export const categories: Category[] = [
         name: "Banoffe",
         description:
           "Receita de família: base de biscoito amanteigado, creme de doce de leite, doce de leite caseiro com banana caramelizada e chantilly fresco.",
-        price: 23.99,
+        price: 22,
         image: photo("banoffe"),
       },
       {
@@ -100,7 +100,7 @@ export const categories: Category[] = [
         name: "Torta de Limão",
         description:
           "Nossa receita de família: massa amanteigada que derrete na boca, creme de limão e merengue gratinado com raspas de limão. Equilíbrio perfeito entre o doce e o cítrico.",
-        price: 25.9,
+        price: 23,
         image: photo("torta-de-limao"),
       },
       {
@@ -108,7 +108,7 @@ export const categories: Category[] = [
         name: "Pudim de Sorvete com Calda de Chocolate (sem glúten)",
         description:
           "Sorvete à base de baunilha com calda de chocolate meio amargo. Dica: aqueça 5 segundos no micro-ondas para desenformar e despeje a calda por cima.",
-        price: 16.9,
+        price: 15.5,
         image: photo("pudim-de-sorvete"),
       },
       {
@@ -116,7 +116,7 @@ export const categories: Category[] = [
         name: "Mousse de Chocolate (sem glúten)",
         description:
           "Cremosa e intensamente chocolatuda, feita com chocolate de alta qualidade e finalizada com raspas de chocolate.",
-        price: 16.9,
+        price: 15,
         image: photo("mousse-de-chocolate"),
       },
       {
@@ -124,7 +124,7 @@ export const categories: Category[] = [
         name: "Palha Italiana Ninho com Nutella",
         description:
           "O toque cremoso do brigadeiro de Ninho com a intensidade da Nutella — a dupla perfeita para adoçar o seu dia!",
-        price: 13.99,
+        price: 12,
         image: photo("palha-italiana-ninho-nutella"),
       },
       {
@@ -132,7 +132,7 @@ export const categories: Category[] = [
         name: "Pudim",
         description:
           "Cremoso, sem nenhum furinho e com calda na medida certa. Experimente e apaixone-se!",
-        price: 17.9,
+        price: 17,
         image: photo("pudim"),
       },
     ],
@@ -147,7 +147,7 @@ export const categories: Category[] = [
         name: "Cenoura com Brigadeiro",
         description:
           'Carinhosamente chamado de "Caseirinho": massa de cenoura suave coberta com nosso brigadeiro gourmet cremoso.',
-        price: 19.99,
+        price: 18.5,
         image: photo("cenoura-com-brigadeiro"),
       },
     ],
@@ -162,35 +162,35 @@ export const categories: Category[] = [
         name: "Geladinho Gourmet de Pudim",
         description:
           "O sabor clássico do pudim em versão geladinha, feito com pudim de verdade e aquela calda dourada.",
-        price: 13.99,
+        price: 13,
         image: photo("geladinho-pudim"),
       },
       {
         id: "geladinho-ninho-morango",
         name: "Geladinho Ninho com Geleia de Morango",
         description: "O sabor cremoso do leite Ninho com o toque da geleia artesanal de morango.",
-        price: 12.99,
+        price: 12,
         image: photo("geladinho-ninho-morango"),
       },
       {
         id: "geladinho-ferrero-rocher",
         name: "Geladinho Ferrero Rocher",
         description: "Geladinho gourmet sabor Ferrero Rocher.",
-        price: 12.9,
+        price: 12,
         image: photo("geladinho-ferrero-rocher"),
       },
       {
         id: "geladinho-chocolate",
         name: "Geladinho de Chocolate",
         description: "Geladinho gourmet de chocolate.",
-        price: 11.9,
+        price: 12,
         image: photo("geladinho-chocolate"),
       },
       {
         id: "geladinho-abacate",
         name: "Geladinho de Abacate",
         description: "Geladinho gourmet de abacate.",
-        price: 10.99,
+        price: 10,
         image: photo("geladinho-abacate"),
       },
     ],
@@ -205,7 +205,7 @@ export const categories: Category[] = [
         name: "Quiche de Alho-Poró",
         description:
           "Leve, sofisticada e irresistível: massa leve, recheio cremoso e ingredientes selecionados.",
-        price: 18,
+        price: 14,
         image: photo("quiche-alho-poro"),
       },
       {
@@ -213,7 +213,7 @@ export const categories: Category[] = [
         name: "Quiche de Frango",
         description:
           "Cremosa e super saborosa, perfeita para o lanche ou o jantar. Massa leve e recheio cremoso.",
-        price: 18,
+        price: 14,
         image: photo("quiche-frango"),
       },
       {
@@ -221,7 +221,7 @@ export const categories: Category[] = [
         name: "Quiche de Calabresa",
         description:
           "Bem temperada e cheia de sabor. Massa leve, recheio cremoso e ingredientes selecionados.",
-        price: 18,
+        price: 14,
         image: photo("quiche-calabresa"),
       },
       {
@@ -229,7 +229,7 @@ export const categories: Category[] = [
         name: "Empadão de Frango",
         description:
           "Massa amanteigada, leve e macia, com recheio farto de frango desfiado, requeijão cremoso e tempero caseiro.",
-        price: 21.99,
+        price: 19,
         image: photo("empadao-frango"),
       },
       {
@@ -237,7 +237,7 @@ export const categories: Category[] = [
         name: "Empadão de Carne Seca",
         description:
           "Massa amanteigada levemente dourada com recheio cremoso e generoso de carne seca, com aquele sabor caseiro de vó.",
-        price: 22.99,
+        price: 20,
         image: photo("empadao-carne-seca"),
       },
       {
@@ -245,14 +245,14 @@ export const categories: Category[] = [
         name: "Empadão de Palmito",
         description:
           "Massa amanteigada que derrete na boca e recheio generoso e cremoso de palmito.",
-        price: 20.99,
+        price: 18,
         image: photo("empadao-palmito"),
       },
       {
         id: "empadinha-frango",
         name: "Empadinha de Frango",
         description: "Empadinha de massa amanteigada recheada com frango.",
-        price: 11,
+        price: 12,
         image: photo("empadinha-frango"),
       },
       {
@@ -267,7 +267,7 @@ export const categories: Category[] = [
         name: "Empadinha de Palmito",
         description:
           "Massa amanteigada que derrete na boca e recheio generoso e cremoso de palmito.",
-        price: 12,
+        price: 13,
         image: photo("empadinha-palmito"),
       },
     ],
@@ -281,21 +281,21 @@ export const categories: Category[] = [
         id: "coca-cola-sem-acucar-200ml",
         name: "Coca-Cola Sem Açúcar 200ml",
         description: "Garrafa 200ml.",
-        price: 5.99,
+        price: 5,
         image: photo("coca-cola-sem-acucar-200ml"),
       },
       {
         id: "coca-cola-200ml",
         name: "Coca-Cola Original 200ml",
         description: "Garrafa 200ml.",
-        price: 5.99,
+        price: 5,
         image: photo("coca-cola-200ml"),
       },
       {
         id: "coca-cola-220ml",
         name: "Coca-Cola 220ml",
         description: "Lata 220ml.",
-        price: 7.5,
+        price: 6.5,
         image: photo("coca-cola-220ml"),
       },
       {
@@ -309,35 +309,35 @@ export const categories: Category[] = [
         id: "coca-cola-sem-acucar-350ml",
         name: "Coca-Cola Sem Açúcar 350ml",
         description: "Lata 350ml.",
-        price: 8.15,
+        price: 7.15,
         image: photo("coca-cola-sem-acucar-350ml"),
       },
       {
         id: "coca-cola-1-5l",
         name: "Coca-Cola Original 1,5L",
         description: "Garrafa 1,5L.",
-        price: 17,
+        price: 13,
         image: photo("coca-cola-1-5l"),
       },
       {
         id: "guarana-guaravita-290ml",
         name: "Guaraná Natural Guaravita 290ml",
         description: "Embalagem 290ml.",
-        price: 4.99,
+        price: 3.99,
         image: photo("guarana-guaravita-290ml"),
       },
       {
         id: "agua-com-gas-500ml",
         name: "Água Mineral com Gás 500ml",
         description: "Garrafa 500ml.",
-        price: 5,
+        price: 4.5,
         image: photo("agua-com-gas-500ml"),
       },
       {
         id: "agua-sem-gas",
         name: "Água sem Gás",
         description: "Água mineral sem gás.",
-        price: 4,
+        price: 3.5,
         image: photo("agua-sem-gas"),
       },
     ],
