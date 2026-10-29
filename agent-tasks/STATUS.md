@@ -5,6 +5,8 @@ e pelo Claude ao revisar. Formato: `AAAA-MM-DD HH:MM | task | quem | resumo`.
 
 <!-- Adicionar novas linhas no topo -->
 
+2026-10-28 21:30 | 012 | opencode | Lovable removido: `vite.config.ts` próprio (TanStack Start + Nitro + Tailwind), `@lovable.dev/*` fora do `package.json` e do lock (13 URLs do mirror privado → `registry.npmjs.org`, zero bump de versão), favicon/apple-touch/og:image próprios, `lovable-error-reporting.ts` apagado.
+
 2026-10-28 21:05 | 011 | opencode | `agua-sem-gas.jpg` trocada pelo packshot Crystal sem gás 500ml (Mambo/VTEX), recorte Vision + cream, 900×1125, 99 KB. Seed do back rodado; `test_shared_svg_photo` virou `test_each_beverage_has_own_photo` e a suíte do back passou.
 
 2026-10-28 21:05 | 010 | opencode | Pagamento: só `cartao-entrega` e `dinheiro` selecionáveis; Pix e Cartão Online desdobrados em ids próprios, `available: false` e badge "Em breve" no `Choice`. `CartSheet` usa `isOnlinePayment`; `check-checkout.ts` atualizado.

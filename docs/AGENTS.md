@@ -12,7 +12,7 @@ navega pelas categorias (bolos, tortas, docinhos, taças, chocolates, encomendas
 monta o pedido em um carrinho **100% local** e finaliza via **WhatsApp**. Não há
 backend de pedidos nem checkout de pagamento.
 
-Projeto conectado ao [Lovable](https://lovable.dev) — ver **Regras duras** abaixo.
+Projeto publicado a partir do repositório `hugoreiisc12/CARDAPIO-NINHA` — ver **Regras duras** abaixo.
 Publicado a partir do repositório `hugoreiisc12/plum-sweet-menu`.
 
 ## Stack
@@ -20,7 +20,7 @@ Publicado a partir do repositório `hugoreiisc12/plum-sweet-menu`.
 | Camada | Tecnologia |
 |---|---|
 | Framework SSR | **TanStack Start** (React 19, SSR via **Nitro**) |
-| Bundler / dev | **Vite 8** + plugin do Lovable (`@lovable.dev/vite-tanstack-config`) |
+| Bundler / dev | **Vite 8** (`vite.config.ts` próprio: TanStack Start + Tailwind + Nitro) |
 | Estilos | **Tailwind CSS v4** (via `@tailwindcss/vite`, CSS-first, import em `src/styles.css`) |
 | UI components | **shadcn/ui** + Radix (componentes em `src/components/ui/`) |
 | 3D | **three 0.185** (`SweetsCover` + `SweetsCoverLib`) |
@@ -80,7 +80,7 @@ src/
 │   ├── cart-context.tsx   # estado do carrinho (localStorage)
 │   ├── menu-data.ts       # categorias/produtos + WhatsApp env
 │   ├── utils.ts           # cn() (tailwind-merge + clsx)
-│   ├── error-page.ts / error-capture.ts / lovable-error-reporting.ts
+│   ├── error-page.ts / error-capture.ts
 └── styles.css          # Tailwind v4 + tokens de cor (ver Branding)
 ```
 
@@ -232,10 +232,9 @@ visual**; nunca apagar task concluída.
 
 ## Regras duras
 
-1. **Git / Lovable**: não reescrever histórico publicado (nada de force-push,
-   rebase/amend/squash de commits já enviados). Commits da branch conectada
-   sincronizam para o Lovable — manter a branch num estado funcional. Só commitar/
-   push quando o usuário pedir.
+1. **Git**: não reescrever histórico publicado (nada de force-push,
+   rebase/amend/squash de commits já enviados). Só commitar/push quando o
+   usuário pedir.
 2. **Nunca commitar segredos**: `.env*`, `security_config.json`, `opencode.json`
    estão no `.gitignore`. Cuidado com chaves/URLs acidentalmente coladas no
    código/documentos.

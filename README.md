@@ -2,7 +2,7 @@
 
 Cardápio digital (one-page) para a doceria artesanal **Ninha Cakes**. O visitante navega pelas categorias (bolos, tortas, docinhos, taças, chocolates, encomendas), monta o pedido em um carrinho local e finaliza via **WhatsApp** — não há checkout de pagamento nem backend de pedidos.
 
-Projeto sincronizado com o [Lovable](https://lovable.dev) (ver `.lovable/`) e publicado a partir do repositório `hugoreiisc12/plum-sweet-menu`.
+Projeto publicado a partir do repositório `hugoreiisc12/CARDAPIO-NINHA`.
 
 ## Stack
 
@@ -62,7 +62,7 @@ Estes valores em `src/lib/menu-data.ts` e `src/routes/index.tsx` ainda são **fi
 ## Estado do git a observar
 
 Há alterações **não commitadas** no working tree (feature de carrinho em andamento):
-`cart-context.tsx`, `CartSheet.tsx`, `ui/bottom-sheet.tsx` são novos; `ProductSheet.tsx`, `SweetsCover.tsx`, `index.tsx`, `styles.css`, `routeTree.gen.ts` e os SVGs em `assets/sweets/` foram modificados. Vale revisar e commitar antes de seguir para não perder esse progresso — e lembrar que o branch está conectado ao Lovable, então evite `push --force`/rebase de commits já publicados (ver `AGENTS.md`).
+`cart-context.tsx`, `CartSheet.tsx`, `ui/bottom-sheet.tsx` são novos; `ProductSheet.tsx`, `SweetsCover.tsx`, `index.tsx`, `styles.css`, `routeTree.gen.ts` e os SVGs em `assets/sweets/` foram modificados. Vale revisar e commitar antes de seguir para não perder esse progresso.
 
 ## Próximos passos sugeridos
 

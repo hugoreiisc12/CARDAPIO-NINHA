@@ -51,3 +51,13 @@ As fotos de doces e salgados foram migradas do iFood da Ninha em 2026-09-23
 `agua-sem-gas.jpg` também veio do iFood nessa migração (foto de 500×375, a única
 fora do padrão 4:5 da categoria) e foi substituída em 2026-10-28 pelo packshot
 Crystal sem gás 500ml, da mesma linha da água com gás.
+
+## Identidade gerada (não é imagem de terceiros)
+
+`public/favicon.png` (64×64), `public/apple-touch-icon.png` (180×180) e
+`public/og-image.jpg` (1200×630) são gerados a partir dos tokens do projeto:
+fundo `plum-900` `#46182F`, letra em Fraunces itálico `cream-50` `#FAF2F4` e,
+no card de compartilhamento, o `gradient-brand` (`#E58AA0 → #E2795B → #E9A25C`)
+sobre a foto `public/images/hero-bolo-1000.jpg`. Nenhum asset de marca de
+terceiros é usado.
+
