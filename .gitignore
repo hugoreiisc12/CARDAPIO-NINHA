@@ -24,9 +24,7 @@ dist-ssr
 .vercel
 
 # Segredos e config local (docs/AGENTS.md regra dura #2)
-.env
-.env.*
-!.env.example
+
 security_config.json
 opencode.json
 
